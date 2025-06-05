@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.db74abf6.css",
+    "main.js": "/static/js/main.ab4ac9c3.js",
+    "static/media/running-dog.gif": "/static/media/running-dog.1ff1cb5bcff0ba9a0d14.gif",
+    "static/media/hero-dog.png": "/static/media/hero-dog.a5a2ac65240b91a23362.png",
+    "index.html": "/index.html",
+    "main.db74abf6.css.map": "/static/css/main.db74abf6.css.map",
+    "main.ab4ac9c3.js.map": "/static/js/main.ab4ac9c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db74abf6.css",
+    "static/js/main.ab4ac9c3.js"
+  ]
+}

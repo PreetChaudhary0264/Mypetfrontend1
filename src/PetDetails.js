@@ -9,7 +9,7 @@ const PetDetails = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/v1/petdetails/${id}`)
+    axios.get(`https://mypet-backend-agly.onrender.com/api/v1/petdetails/${id}`)
       .then(res => {
         if (res.data.success) {
           setPet(res.data.pet);
@@ -28,7 +28,7 @@ const PetDetails = () => {
   return (
     <div className="pet-details-container">
       <h2>{pet.name}</h2>
-      <img src={`http://localhost:4000/${pet.profilePhoto}`} alt={pet.name} />
+      <img src={`https://mypet-backend-agly.onrender.com/${pet.profilePhoto}`} alt={pet.name} />
       <p><strong>Breed:</strong> {pet.breed}</p>
       <p><strong>Age:</strong> {pet.age} years</p>
       <p><strong>Bio:</strong> {pet.bio}</p>

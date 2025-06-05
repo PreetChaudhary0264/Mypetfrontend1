@@ -65,7 +65,7 @@ const PetForm = () => {
 
 
     try {
-      const res = await axios.post("http://localhost:4000/api/v1/register", formData, {
+      const res = await axios.post("https://mypet-backend-agly.onrender.com/api/v1/register", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -75,7 +75,7 @@ const PetForm = () => {
 
       if (res.data.success) {
         const registeredPet = res.data.pet;
-        const qrUrl = `http://localhost:3000/petdetails/${registeredPet._id}`;
+        const qrUrl = `https://mypetfrontend1-4drn-h8z8ieoze.vercel.app/petdetails/${registeredPet._id}`;
 
         const reader = new FileReader();
         reader.onloadend = () => {
