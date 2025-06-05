@@ -39,7 +39,7 @@ const GenerateQR = () => {
       navigate('/register-pet');
       return;
     }
-const petDetailsUrl = `https://mypetfrontend1-4drn-h8z8ieoze.vercel.app/petdetails/${pet._id}`;
+const petDetailsUrl = `https://mypetfrontend1-4drn-3e2ner7ju.vercel.app/petdetails/${pet._id}`;
 setQrValue(petDetailsUrl);
 
     setIsSubmitted(true);
