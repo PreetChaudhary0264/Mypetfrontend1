@@ -75,7 +75,7 @@ const PetForm = () => {
 
       if (res.data.success) {
         const registeredPet = res.data.pet;
-        const qrUrl = `https://mypetfrontend1-4drn-3e2ner7ju.vercel.app/petdetails/${registeredPet._id}`;
+        const qrUrl = `https://mypetfrontend1.vercel.app/petdetails/${registeredPet._id}`;
 
         const reader = new FileReader();
         reader.onloadend = () => {
