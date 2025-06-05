@@ -35,7 +35,7 @@ const Navbar = () => {
          });
       navigate('/signup');
     }else{
-      toast.success("now good",{
+      toast.success("Register Your Pet",{
         position:"top-center",
         autoClose:2000
       })

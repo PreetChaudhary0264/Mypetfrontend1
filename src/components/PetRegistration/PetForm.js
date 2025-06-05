@@ -6,12 +6,31 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //for my-pets
-const user = JSON.parse(sessionStorage.getItem("user"));
-console.log(user);
 
 
+// const navigate = useNavigate();
 
 const PetForm = () => {
+
+    
+
+  // ✅ Safely parse user
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log(user);
+
+  // ✅ If user not found or missing _id → redirect
+  if (!user || !user._id) {
+    // Optional toast for feedback
+    toast.error("Please login first", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+
+    // Redirect to signup
+    navigate('/signup');
+    return null;
+  }
+
   const [pet, setPet] = useState({
     name: '',
     breed: '',
@@ -66,16 +85,18 @@ const PetForm = () => {
 
     try {
       const res = await axios.post("https://mypet-backend-agly.onrender.com/api/v1/register", formData, {
+      // const res = await axios.post("http://localhost:4000/api/v1/register", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${user}`
+          Authorization: `Bearer ${user.token}`
         },
       });
 
       if (res.data.success) {
         const registeredPet = res.data.pet;
         const qrUrl = `https://mypetfrontend1-git-main-preet-chaudharys-projects-7db86409.vercel.app/petdetails/${registeredPet._id}`;
+            // const qrUrl = `http://localhost:3000/petdetails/${registeredPet._id}`;
 
         const reader = new FileReader();
         reader.onloadend = () => {

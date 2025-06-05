@@ -40,6 +40,7 @@ const GenerateQR = () => {
       return;
     }
 const petDetailsUrl = `https://mypetfrontend1-git-main-preet-chaudharys-projects-7db86409.vercel.app/petdetails/${pet._id}`;
+// const petDetailsUrl = `http://localhost:3000/petdetails/${pet._id}`;
 setQrValue(petDetailsUrl);
 
     setIsSubmitted(true);
