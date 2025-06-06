@@ -8,10 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 //for my-pets
 
 
-// const navigate = useNavigate();
+
 
 const PetForm = () => {
-
+ const navigate = useNavigate();
     
 
   // ✅ Safely parse user
@@ -41,7 +41,7 @@ const PetForm = () => {
   });
 
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // if(!user){
   // alert("please login first")
@@ -196,7 +196,7 @@ const PetForm = () => {
         </button>
       </form>
 
-  <ToastContainer />
+  {/* <ToastContainer /> */}
     </div>
     
 

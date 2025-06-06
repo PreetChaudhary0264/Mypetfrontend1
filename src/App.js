@@ -10,6 +10,7 @@ import Home from './components/Home/Home';
 import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
 import PetDetails from './PetDetails';
+import { ToastContainer } from 'react-toastify';
 // import MyPets from './components/MyPets/MyPets';
 
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       {/* <AuthProvider> </AuthProvider> */}
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/register" element={<PetForm />} />
@@ -32,6 +34,7 @@ function App() {
 
 
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }

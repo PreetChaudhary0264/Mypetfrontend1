@@ -16,6 +16,10 @@
   margin-right: 10px;
 }
 
+.logo-base{
+  color: white;
+}
+
 .profile-button {
   font-size: 20px;
   padding: 5px 10px;
@@ -142,14 +146,49 @@
   background-color: #c0392b;
 }
 
+.hamburger{
+  display: none;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .menu-icon {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #4b9cd3;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .hamburger {
     display: block;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
   }
 
   .nav-menu {
-    display: none; /* Will toggle with JavaScript later */
-  }
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.nav-menu.show {
+  max-height: 500px; /* or use auto with JS for full flexibility */
+}
+
 }

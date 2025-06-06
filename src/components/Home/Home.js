@@ -1,10 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
 import heroDog from './images/hero-dog.png';
-import runningDog from './images/running-dog.gif'; // Add an animated GIF of a running dog
+import runningDog from './images/running-dog.gif';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  function registerHandler(){
+    const user = JSON.parse(sessionStorage.getItem("user"));
+        if(!user){
+            
+            toast.success("Please login before registering your pet...", {
+             position: "top-center",
+             autoClose: 2000
+             });
+          navigate('/signup');
+        }else{
+          navigate('/register');
+          toast.success("Register Your Pet",{
+            position:"top-center",
+            autoClose:2000
+          })
+        }
+  }
   return (
     <div className="home-page">
       {/* Keep Original Hero Section */}
@@ -17,9 +39,9 @@ const Home = () => {
             Protect your pets with smart QR tags and instant recovery alerts
           </p>
           <div className="hero-buttons">
-            <Link to="/register-pet" className="cta-button2">
+            <button onClick={registerHandler}  className="cta-button2">
               Register Your Pet Now
-            </Link>
+            </button>
           </div>
         </div>
         <div className="hero-image">
@@ -68,15 +90,16 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="footer-cta">
+        {/* <div className="footer-cta">
           <Link to="/register-pet" className="cta-button">
             Get Started Today
           </Link>
-        </div>
+        </div> */}
         <div className="copyright">
           © {new Date().getFullYear()} MYPET. All rights reserved.
         </div>
       </footer>
+      {/* <ToastContainer/> */}
     </div>
   );
 };

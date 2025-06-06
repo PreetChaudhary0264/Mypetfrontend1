@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import './GenerateQR.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GenerateQR = () => {
   const location = useLocation();
@@ -35,8 +37,10 @@ const GenerateQR = () => {
 
   const generateQRCode = () => {
     if (!pet) {
-      alert('No pet data found. Please register a pet first.');
-      navigate('/register-pet');
+     toast.success("Please register your pet first",{
+             position:"top-center",
+             autoClose:2000
+           })
       return;
     }
 const petDetailsUrl = `https://mypetfrontend1.vercel.app/petdetails/${pet._id}`;
@@ -135,6 +139,7 @@ setQrValue(petDetailsUrl);
           </div>
         </div>
       )}
+      {/* <ToastContainer/> */}
     </div>
   );
 };
