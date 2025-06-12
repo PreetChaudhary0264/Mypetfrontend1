@@ -4,12 +4,14 @@ import "./Navbar.css";
 import { UserContext } from "../../context/UserContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import peticon from './images/peticon.png';
+import profileUser from './images/user.png';
 
 const Navbar = () => {
   const { user, logout } = useContext(UserContext);
 
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // ✅ Fixed: added this line
+  const [menuOpen, setMenuOpen] = useState(false); //  Fixed: added this line
   const profileRef = useRef();
   const navigate = useNavigate();
 
@@ -42,7 +44,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <span className="logo-base">MYPET 🐾</span>
+       <span className="logo-base">
+         MYPET <img src={peticon} alt="paw" className="paw-icon" />
+       </span>
+
 
         {/* ✅ Hamburger Toggle */}
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
@@ -56,6 +61,12 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/map" className="nav-links" onClick={() => setMenuOpen(false)}>
+             🗺️ Map
+             </Link>
+           </li>
+
           <li onClick={registerhandler} className="nav-item">
             <Link to="/register" className="nav-links" onClick={() => setMenuOpen(false)}>
               Register Pet
@@ -75,31 +86,18 @@ const Navbar = () => {
             </li>
           ) : (
             <li className="nav-item profile-dropdown" ref={profileRef}>
-              <button
-                className="profile-icon"
-                onClick={() => setShowProfileMenu(!showProfileMenu)}
-              >
-                👤
-              </button>
+            <button className="profile-button-text" onClick={() => setShowProfileMenu(!showProfileMenu)}>
+             <img src={profileUser} alt="user" className="user-icon" />
+            </button>
+
               {showProfileMenu && (
-                <div className="profile-menu">
-                  <p>
-                    <strong>Name:</strong> {user.name}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {user.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {user.phone}
-                  </p>
-                  <Link to="/update-profile" className="update-button">
-                    Update Profile
-                  </Link>
-                  <button onClick={logout} className="logout-button">
-                    Logout
-                  </button>
-                </div>
-              )}
+               <div className="profile-menu">
+               <p><strong>Name:</strong> {user.name}</p>
+               <p><strong>Email:</strong> {user.email}</p>
+               <p><strong>Phone:</strong> {user.phone}</p>
+               <button onClick={logout} className="logout-button">Logout</button>
+               </div>
+               )}
             </li>
           )}
         </ul>

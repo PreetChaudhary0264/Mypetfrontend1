@@ -40,7 +40,7 @@ const Home = () => {
           </p>
           <div className="hero-buttons">
             <button onClick={registerHandler}  className="cta-button2">
-              Register Your Pet Now
+              Get Started
             </button>
           </div>
         </div>
@@ -60,7 +60,7 @@ const Home = () => {
           <ul className="features-list">
             <li>Instant identification with scannable QR tags</li>
             <li>Direct communication with pet owners</li>
-            <li>Medical information accessible to vets</li>
+            <li>Find nearby pet stores, vet clinics, and care services</li>
             <li>Peace of mind for pet parents</li>
           </ul>
         </div>

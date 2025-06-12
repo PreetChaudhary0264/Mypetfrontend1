@@ -4,6 +4,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import './GenerateQR.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import qrcodeImage from './images/qr-code.png';
 
 const GenerateQR = () => {
   const location = useLocation();
@@ -44,7 +45,7 @@ const GenerateQR = () => {
       return;
     }
 const petDetailsUrl = `https://mypetfrontend1.vercel.app/petdetails/${pet._id}`;
-// const petDetailsUrl = `http://localhost:3000/petdetails/${pet._id}`;
+// const petDetailsUrl = `http://localhost:3001/petdetails/${pet._id}`;
 setQrValue(petDetailsUrl);
 
     setIsSubmitted(true);
@@ -60,6 +61,9 @@ setQrValue(petDetailsUrl);
   };
 
   return (
+   <div className='generate-qr-page'>
+   <div className='main-container'>
+
     <div className="generate-qr-container">
       <h2>Generate Pet QR Code</h2>
       
@@ -140,6 +144,35 @@ setQrValue(petDetailsUrl);
         </div>
       )}
       {/* <ToastContainer/> */}
+    </div>
+
+
+   {/* //info section */}
+
+    <section className='info-section'>
+        
+       <div className="qr-info-section">
+        <div className="qr-info-text">
+        <h2>What This QR Code Does</h2>
+        <p>
+         When scanned, this QR code instantly provides access to your pet’s details—such as their name,
+         breed, age, and your contact information. It helps good Samaritans quickly reunite lost pets
+         with their owners without needing any app or login.
+        </p>
+       <ul>
+        <li>Pet details like name, breed, and bio</li>
+        <li>Owner contact information (phone & email)</li>
+        <li>Direct access via any QR scanner</li>
+        <li>Secure and privacy-friendly link</li>
+       </ul>
+       </div>
+       <div className="qr-info-image">
+       <img src={qrcodeImage} alt="QR Code Example" className="blurred-qr" />
+      </div>
+     </div>
+
+    </section>
+    </div>
     </div>
   );
 };

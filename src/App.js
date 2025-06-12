@@ -12,6 +12,7 @@ import Signup from './components/Auth/Signup';
 import PetDetails from './PetDetails';
 import { ToastContainer } from 'react-toastify';
 // import MyPets from './components/MyPets/MyPets';
+import MapComponent from './components/Map/map'; // Adjust path if needed
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
         <Route path="/register" element={<PetForm />} />
         {/* <Route path="/my-pets" element={<MyPets />} /> */}
         {/* <Route path="/my-pets" element={<MyPets userId={"<USER_ID_FROM_AUTH>"} />} /> */}
-
+        <Route path="/map" element={<MapComponent />} />
        <Route path="/generate-qr" element={<GenerateQR />} />
          <Route path="/login" element={<Login />} />
          <Route path="/signup" element={<Signup />} />

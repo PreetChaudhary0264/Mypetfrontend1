@@ -4,6 +4,8 @@ import axios from "axios";
 import './Auth.css';
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -27,7 +29,10 @@ export default function Login() {
       });
 
       if(res.data.success){
-        alert("Login successful!");
+        toast.success("Login successful!",{
+          position:"top-right",
+          autoClose:1000,
+        });
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
         setUser(res.data.user);
         console.log(JSON.parse(sessionStorage.getItem("user")));
@@ -74,7 +79,7 @@ export default function Login() {
           </button>
         </form>
         <div className="auth-footer">
-          Need an account? <Link to="/signup">Sign Up</Link>
+         Create account <Link to="/signup">Sign Up</Link>
         </div>
       </div>
     </div>

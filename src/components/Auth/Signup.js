@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './Auth.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -28,12 +30,15 @@ export default function Signup() {
 });
 
       if(res.data.success){
-        alert("Signup successful! Please login.");
+        toast.success("Signup successful! Please login.",{
+          position:"top-right",
+          autoClose:1000,
+        });
         navigate("/login");
       }
     } catch (err) {
        console.error("Signup error:", err); 
-  console.log("Error response:", err.response);
+       console.log("Error response:", err.response);
       setError(
         err.response?.data?.message || "Something went wrong, please try again"
       );

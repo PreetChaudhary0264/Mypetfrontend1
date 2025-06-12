@@ -1,120 +1,176 @@
-.generate-qr-container {
-  max-width: 800px;
+.generate-qr-page {
+  background-color: white;
+  padding: 0 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.generate-qr-container h2 {
-  color: #4b9cd3;
+.generate-qr-page .qr-info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 30px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.generate-qr-page .qr-info-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.generate-qr-page .qr-info-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.generate-qr-page .qr-info-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.generate-qr-page .qr-info-text ul {
+  padding-left: 1.2rem;
+  color: #444;
+  margin-top: 10px;
+}
+
+.generate-qr-page .qr-info-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.generate-qr-page .blurred-qr {
+  width: 200px;
+  height: 200px;
+  opacity: 0.5;
+  border-radius: 12px;
+  border: 2px dashed #ccc;
+}
+
+.generate-qr-page .generate-qr-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* margin-top: 50px; */
+}
+
+.generate-qr-page .generate-qr-container h2 {
   text-align: center;
   margin-bottom: 30px;
+  font-size: 2rem;
+  color: #222;
 }
 
-.qr-form, .qr-result {
+.generate-qr-page .qr-form,
+.generate-qr-page .qr-result {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.pet-preview {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-  border-left: 4px solid #4b9cd3;
-}
-
-.pet-preview img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.owner-details {
-  background: #f5f9fc;
+.generate-qr-page .pet-preview {
+  text-align: center;
+  background: #fafafa;
   padding: 20px;
   border-radius: 8px;
 }
 
-.form-group {
+.generate-qr-page .pet-preview img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-bottom: 15px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
+.generate-qr-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.generate-qr-page .form-group label {
+  color: #444;
   font-weight: 500;
-  color: #333;
 }
 
-.form-group input {
-  width: 100%;
+.generate-qr-page .form-group input {
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
-.generate-btn, .download-btn, .edit-btn {
-  padding: 12px 20px;
+.generate-qr-page .generate-btn,
+.generate-qr-page .download-btn,
+.generate-qr-page .edit-btn {
+  padding: 12px 18px;
+  font-size: 1rem;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.generate-btn {
+.generate-qr-page .generate-btn {
   background-color: #4b9cd3;
   color: white;
-  margin-top: 10px;
 }
 
-.generate-btn:hover {
-  background-color: #3a7ca5;
-}
-
-.generate-btn:disabled {
-  background-color: #cccccc;
+.generate-qr-page .generate-btn:disabled {
+  background-color: #bcdff5;
   cursor: not-allowed;
 }
 
-.qr-code-display {
-  margin: 20px auto;
-  text-align: center;
-}
-
-.qr-instructions {
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.qr-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.download-btn {
-  background-color: #4b9cd3;
+.generate-qr-page .download-btn {
+  background-color: #43a047;
   color: white;
 }
 
-.download-btn:hover {
-  background-color: #3a7ca5;
+.generate-qr-page .edit-btn {
+  background-color: #f57c00;
+  color: white;
 }
 
-.edit-btn {
-  background-color: white;
-  color: #4b9cd3;
-  border: 1px solid #4b9cd3;
+.generate-qr-page .qr-code-display {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
 }
 
-.edit-btn:hover {
-  background-color: #f5f9fc;
+.generate-qr-page .qr-instructions {
+  text-align: center;
+  color: #444;
+  font-size: 1rem;
+}
+
+.generate-qr-page .qr-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .generate-qr-page .qr-info-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .generate-qr-page .qr-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

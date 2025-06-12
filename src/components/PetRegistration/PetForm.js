@@ -96,7 +96,7 @@ const PetForm = () => {
       if (res.data.success) {
         const registeredPet = res.data.pet;
         const qrUrl = `https://mypetfrontend1.vercel.app/petdetails/${registeredPet._id}`;
-            // const qrUrl = `http://localhost:3000/petdetails/${registeredPet._id}`;
+            // const qrUrl = `http://localhost:3001/petdetails/${registeredPet._id}`;
 
         const reader = new FileReader();
         reader.onloadend = () => {
